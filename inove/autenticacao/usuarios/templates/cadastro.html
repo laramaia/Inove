@@ -1,33 +1,64 @@
-<html>
-    <head>
-        <title>Cadastro</title>
-    </head>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <body>
-        <h1>Cadastro</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importa o Css e a font Awesome que é de Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./personalize/cadastro/cadastro.css">
+    <link rel="stylesheet" href="./personalize/global/style.css">
+    <title>cadastro</title>
+</head>
 
-        <form action="{% url 'cadastro' %}" method="POST">
-            {% csrf_token %}
-            
-            <input type="text" placeholder="Nome completo..." name="nome_completo" required>
-            <br>
+<body>
+    <div class="main-cadastro">
+        <div class="left-cadastro">
+            <!-- Parte do formulário de cadastro -->
+            <div class="card-cadastro">
+                <!---Parte do botão voltar para o site-->
+                <a href="index.html" class="form-back"><i class="fa-solid fa-backward"></i>Voltar para o site</a>
+               <!---Texto -->
+                <h1>Bem Vindo!</h1>
+                  <!---Link para ir direto para o login-->
+                <div class="form-cadastro">
+                    <p><a href="login.html" class="form-title">Já tem uma conta?</a> acesse com ela aqui!</p>
+                </div>
+                <!-- Parte do Input e do Label, onde o usuario vai digitar os dados -->
+                <div class="textfield">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" name="nome_completo" placeholder="Digite seu nome completo">
+                </div>
+                <div class="textfield">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="Digite seu email">
+                </div>
+                <div class="textfield">
+                    <label for="matricula">Matrícula</label>
+                    <input type="text" name="matricula" placeholder="Digite sua matrícula">
+                </div>
+                <div class="textfield">
+                    <label for="cpf">CPF</label>
+                    <input type="text" autocomplete="off" maxlength="11" class="cpf" name="cpf"
+                        placeholder="Digite seu CPF">
+                </div>
+                <!-- Parte do CheckBox onde o usuario vai selecionar se é professor ou aluno -->
+                <div class="checkbox-cadastro">
+                    <span>Sou:</span>
+                    <label for="checkbox" class="aluno">Aluno</label>
+                    <input type="checkbox" name="tipo_usuario" value="aluno">
+                    <label for="checkbox" class="professor">Professor</label>
+                    <input type="checkbox" name="tipo_usuario" value="professor">
+                </div>
+                <!-- Botao de cadastro -->
+                <button class="btn-cadastro">Cadastrar</button>
+            </div>
+            <div class="right-cadastro">
+                <!-- Imagem na tela do lado direito -->
+                <img src="assets/img/pages/cadastro/Grupo_unido.png" class="right-img" alt="">
+            </div>
+        </div>
+    </div>
+</body>
 
-            <input type="email" placeholder="Email..." name="email" required>
-            <br>
-
-            <input type="password" placeholder="Senha..." name="senha" required>
-            <br>
-
-            <select name="tipo_usuario" required>
-                <option value="" disabled selected>Selecione o tipo de usuário</option>
-                <option value="professor">Professor</option>
-                <option value="estudante">Estudante</option>
-            </select>
-            <br>
-
-            <input type="submit" value="Cadastrar">
-        </form>
-    </body>
 </html>
-
-
