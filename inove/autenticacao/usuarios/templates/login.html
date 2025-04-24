@@ -1,21 +1,69 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<html>
-    <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importa o Css e a font Awesome que é de Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./personalize/login/login.css">
+    <link rel="stylesheet" href="./personalize/global/style.css">
+    <title>login</title>
+</head>
 
-    </head>
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <!-- Imagem na tela do lado Esquerdo -->
+            <img src="assets/img/pages/login/Grupo_unido.png" id="left-img" alt=" ">
+            <div class="right-login">
+                <!-- Parte do formulário de login -->
+                <div class="card-login">
+                    <!---Parte do botão voltar para o site-->
+                    <a href="index.html" class="form-back"><i class="fa-solid fa-backward"></i>Voltar para o site</a>
+                    <!---Texto -->
+                    <h1>Bem Vindo!</h1>
+                    <!---Link para ir direto para o cadastro-->
+                    <div class="form-login">
+                        <p><a href="cadastro.html" class="form-title">Crie uma conta de graça!</a> ou entre com a sua
+                            conta Inove</p>
+                    </div>
+                    <!-- Parte do Input e do Label, onde o usuario vai digitar os dados -->
+                    <div class="textfield">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" placeholder="Digite seu email" value="email">
+                    </div>
+                    <div class="textfield">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" class="senha" placeholder="Digite sua senha" value="senha">
+                        <i class="fa-regular fa-eye" id="btn_senha"></i>
+                    </div>
+                    <!-- Aqui é o link que vai direto para a página Esqueci a minha senha -->
+                    <a href="#" class="form-link">Esqueci minha Senha.</a>
+                    <!-- Botão para logar -->
+                    <button class="btn-login" value="logar">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--Aqui é o Código direto para fazer o olho do input senha, deixar visivel e invisivel os dados da senha digitada -->
+<script>
+    const senha = document.querySelector('.senha');
+    const btn_senha = document.querySelector('#btn_senha');
 
-    <body>
-        <h1>Cadastro</h1>
+    btn_senha.onclick = () => {
+        if (senha.type === 'password') {
+            senha.type = 'text'
+            btn_senha.classList.remove('fa-eye')
+            btn_senha.classList.add('fa-eye-slash')
+        } else {
+            senha.type = 'password'
+            btn_senha.classList.remove('fa-eye-slash')
+            btn_senha.classList.add('fa-eye')
+        }
+    }
 
-        <form action="{%  url 'cadastro' %}" method="POST">{% csrf_token %}
-            <input type="email" placeholder="Email..." name="email">
-            <br>
-            <input type="password" placeholder="Senha..." name="senha">
-            <br>
-            <input type="submit" value="Logar">
-            <br>
-        </form>
-    </body>
+</script>
 
 </html>
