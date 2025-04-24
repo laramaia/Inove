@@ -1,0 +1,9 @@
+# arquivo responsável por mapear urls
+from django.contrib import admin
+from django.urls import path, include
+
+# solicitações 'solicitacao/' são feitas e usuário é levado para caminho correto
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('acesso/', include('usuarios.urls'))
+]
