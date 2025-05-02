@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Cadastro</title>
+    </head>
+
+    <body>
+        <h1>Cadastro</h1>
+
+        <form action="{% url 'cadastro' %}" method="POST">
+            {% csrf_token %}
+            
+            <input type="text" placeholder="Nome completo..." name="nome_completo" required>
+            <br>
+
+            <input type="email" placeholder="Email..." name="email" required>
+            <br>
+
+            <input type="password" placeholder="Senha..." name="senha" required>
+            <br>
+
+            <select name="tipo_usuario" required>
+                <option value="" disabled selected>Selecione o tipo de usuário</option>
+                <option value="professor">Professor</option>
+                <option value="estudante">Estudante</option>
+            </select>
+            <br>
+
+            <input type="submit" value="Cadastrar">
+        </form>
+    </body>
+</html>
+
+
