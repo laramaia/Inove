@@ -17,6 +17,7 @@ def index(request):
             'form': form,
         }
         return render(request, 'exemplo/index.html', context)
+    
     elif request.method == 'POST':
         form = SolucaoForm(request.POST)
 
