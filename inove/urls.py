@@ -6,7 +6,6 @@ from exemplo import views
 # solicitações 'solicitacao/' são feitas e usuário é levado para caminho correto
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('acesso/', include('usuarios.urls')),
-    path('home/', include('home.urls')),
+    path('acesso/', include('autenticacao.usuarios.urls')),
     path('exemplo/', views.index)
 ]
